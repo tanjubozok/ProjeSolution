@@ -19,13 +19,18 @@ namespace Proje.Data.Concrete.Repositories
 
         public void Delete(T model)
         {
-            _object.Remove(model);
+            _databaseContext.Entry(model).State = EntityState.Deleted;
             _databaseContext.SaveChanges();
+        }
+
+        public T Get(Expression<Func<T, bool>> filter)
+        {
+            return _object.FirstOrDefault(filter);
         }
 
         public void Insert(T model)
         {
-            _object.Add(model);
+            _databaseContext.Entry(model).State = EntityState.Added;
             _databaseContext.SaveChanges();
         }
 
@@ -41,6 +46,7 @@ namespace Proje.Data.Concrete.Repositories
 
         public void Update(T model)
         {
+            _databaseContext.Entry(model).State = EntityState.Modified;
             _databaseContext.SaveChanges();
         }
     }

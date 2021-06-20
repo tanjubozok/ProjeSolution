@@ -1,31 +1,42 @@
-﻿using Proje.Data.Concrete.Repositories;
+﻿using Proje.Business.Abstract;
+using Proje.Data.Abstract;
 using Proje.Entity.Concrete;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Proje.Business.Concrete
 {
-    public class CategoryManager
+    public class CategoryManager : ICategoryService
     {
-        GenericRepository<Category> repo = new GenericRepository<Category>();
+        private ICategoryDal _categoryDal;
 
-        public List<Category> GetAll()
+        public CategoryManager(ICategoryDal categoryDal)
         {
-            return repo.List();
+            _categoryDal = categoryDal;
         }
 
-        public void Add(Category model)
+        public void Add(Category category)
         {
-            if (string.IsNullOrEmpty(model.Name) || string.IsNullOrEmpty(model.Description))
-            {
-            }
-            else
-            {
-                repo.Insert(model);
-            }
+            _categoryDal.Insert(category);
+        }
+
+        public void Delete(Category category)
+        {
+            _categoryDal.Delete(category);
+        }
+
+        public Category GetById(int id)
+        {
+            return _categoryDal.Get(x => x.Id == id);
+        }
+
+        public List<Category> List()
+        {
+            return _categoryDal.List();
+        }
+
+        public void Update(Category category)
+        {
+            _categoryDal.Update(category);
         }
     }
 }
