@@ -8,15 +8,15 @@ using System.Web.Mvc;
 
 namespace Proje.UI.Controllers
 {
-    public class CategoryController : Controller
+    public class WriterController : Controller
     {
-        private CategoryManager _categoryManager = new CategoryManager(new EfCategoryDal());
-        private CategoryValidator categoryValidator = new CategoryValidator();
+        private WriterManager _writerManager = new WriterManager(new EfWriterDal());
+        private WriterValidator writerValidator = new WriterValidator();
 
         public ActionResult List()
         {
-            var getList = _categoryManager.List();
-            return View(getList);
+            var getWriter = _writerManager.List();
+            return View(getWriter);
         }
 
         [HttpGet]
@@ -26,14 +26,14 @@ namespace Proje.UI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Add(Category model)
+        public ActionResult Add(Writer model)
         {
-            ValidationResult result = categoryValidator.Validate(model);
+            ValidationResult result = writerValidator.Validate(model);
             if (result.IsValid)
             {
                 model.CreateDate = DateTime.Now;
-                _categoryManager.Add(model);
-                return RedirectToAction("List", "Category");
+                _writerManager.Add(model);
+                return RedirectToAction("List", "Writer");
             }
             else
             {
@@ -45,29 +45,21 @@ namespace Proje.UI.Controllers
             }
         }
 
-        public ActionResult Delete(int id)
-        {
-            var getCategory = _categoryManager.GetById(id);
-            _categoryManager.Delete(getCategory);
-            return RedirectToAction("List", "Category");
-        }
-
-        [HttpGet]
         public ActionResult Edit(int id)
         {
-            var getCategory = _categoryManager.GetById(id);
-            return View(getCategory);
+            var getWriter = _writerManager.GetById(id);
+            return View(getWriter);
         }
 
         [HttpPost]
-        public ActionResult Edit(Category model)
+        public ActionResult Edit(Writer model)
         {
-            ValidationResult result = categoryValidator.Validate(model);
+            ValidationResult result = writerValidator.Validate(model);
             if (result.IsValid)
             {
                 model.CreateDate = DateTime.Now;
-                _categoryManager.Update(model);
-                return RedirectToAction("List", "Category");
+                _writerManager.Update(model);
+                return RedirectToAction("List", "Writer");
             }
             else
             {

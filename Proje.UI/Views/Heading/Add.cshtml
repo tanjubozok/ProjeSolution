@@ -1,9 +1,9 @@
 ﻿@using Proje.Entity.Concrete
-@model Category
+@model Heading
 
 @{
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
-    ViewBag.Title = "Kategori Güncelle";
+    ViewBag.Title = "Başlık Ekle";
 }
 
 <div class="content-wrapper">
@@ -11,13 +11,13 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Kategori Güncelle</h1>
+                    <h1 class="m-0">Başlık Ekle</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/Istatistik/Index">Anasayfa</a></li>
-                        <li class="breadcrumb-item"><a href="/category/list">Kategoriler</a></li>
-                        <li class="breadcrumb-item active">Kategori Güncelle</li>
+                        <li class="breadcrumb-item"><a href="/heading/list">Başlıklar</a></li>
+                        <li class="breadcrumb-item active">Başlık Ekle</li>
                     </ol>
                 </div>
             </div>
@@ -31,27 +31,24 @@
                     <div class="card card-primary card-outline">
                         @using (Html.BeginForm())
                         {
-                            @Html.HiddenFor(model => model.Id)
-
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Kategori Adı</label>
-                                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "kategori adı" })
+                                    <label for="exampleInputEmail1">Başlık Adı</label>
+                                    <input type="text" class="form-control" name="Name" placeholder="başlık adı">
                                     @Html.ValidationMessageFor(x => x.Name, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">Kategori Açıklama</label>
-                                    @Html.TextBoxFor(x => x.Description, new { @class = "form-control", placeholder = "kategori açıklama" })
-                                    @Html.ValidationMessageFor(x => x.Description, "", new { @class = "text-danger" })
+                                    <label for="exampleInputPassword1">Kategori Adı</label>
+                                    @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.CategoryList, new { @class = "form-control" })
                                 </div>
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" name="Status">
-                                    <label class="form-check-label" for="exampleCheck1">Aktif</label>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Yazar Adı</label>
+                                    @Html.DropDownListFor(x => x.WriterId, (List<SelectListItem>)ViewBag.WriterList, new { @class = "form-control" })
                                 </div>
-
                             </div>
+
                             <div class="card-footer">
-                                <a href="/category/list" class="btn btn-secondary">
+                                <a href="/heading/list" class="btn btn-secondary">
                                     <i class="fas fa-arrow-left"></i>
                                     Listeye Geri Dön
                                 </a>

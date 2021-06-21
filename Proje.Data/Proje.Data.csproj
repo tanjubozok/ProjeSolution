@@ -70,6 +70,22 @@
     <Compile Include="Migrations\202106191725142_createDatabase.designer.cs">
       <DependentUpon>202106191725142_createDatabase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106201925364_writerEdit.cs" />
+    <Compile Include="Migrations\202106201925364_writerEdit.designer.cs">
+      <DependentUpon>202106201925364_writerEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106202000576_writerTitle.cs" />
+    <Compile Include="Migrations\202106202000576_writerTitle.designer.cs">
+      <DependentUpon>202106202000576_writerTitle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106212024430_editWriterImage.cs" />
+    <Compile Include="Migrations\202106212024430_editWriterImage.designer.cs">
+      <DependentUpon>202106212024430_editWriterImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106212043005_addWriterPropStatus.cs" />
+    <Compile Include="Migrations\202106212043005_addWriterPropStatus.designer.cs">
+      <DependentUpon>202106212043005_addWriterPropStatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -86,6 +102,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202106191725142_createDatabase.resx">
       <DependentUpon>202106191725142_createDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106201925364_writerEdit.resx">
+      <DependentUpon>202106201925364_writerEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106202000576_writerTitle.resx">
+      <DependentUpon>202106202000576_writerTitle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106212024430_editWriterImage.resx">
+      <DependentUpon>202106212024430_editWriterImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106212043005_addWriterPropStatus.resx">
+      <DependentUpon>202106212043005_addWriterPropStatus.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

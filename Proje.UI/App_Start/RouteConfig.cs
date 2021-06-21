@@ -3,7 +3,7 @@ using System.Web.Routing;
 
 namespace Proje.UI
 {
-    public class RouteConfig
+    public static class RouteConfig
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
@@ -12,7 +12,7 @@ namespace Proje.UI
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Istatistik", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

@@ -1,9 +1,9 @@
 ﻿@using Proje.Entity.Concrete
-@model List<Category>
+@model List<Heading>
 
 @{
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
-    ViewBag.Title = "Kategori Listesi";
+    ViewBag.Title = "Başlık Listesi";
 }
 
 <div class="content-wrapper">
@@ -11,12 +11,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Kategori Listesi</h1>
+                    <h1 class="m-0">Başlık Listesi</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/Istatistik/Index">Anasayfa</a></li>
-                        <li class="breadcrumb-item active">Kategori Listesi</li>
+                        <li class="breadcrumb-item active">Başlık Listesi</li>
                     </ol>
                 </div>
             </div>
@@ -30,9 +30,9 @@
                     <div class="card card-primary card-outline">
 
                         <div class="card-header">
-                            <a href="/category/add" class="btn btn-primary">
+                            <a href="/heading/add" class="btn btn-primary">
                                 <i class="fas fa-plus"></i>
-                                Kategori Ekle
+                                Başlık Ekle
                             </a>
                         </div>
 
@@ -42,31 +42,27 @@
                             <table class="table table-bordered table-striped table-hover table-responsive-lg">
                                 <tr class="text-center text-bold">
                                     <td style="width:7%;">#</td>
-                                    <td style="width:50%;">Kategori Adı</td>
-                                    <td style="width:7%;">Durum</td>
-                                    <td style="width:36%;">İşlem</td>
+                                    <td style="width:15%;">Başlık Adı</td>
+                                    <td style="width:15%;">Oluşturma Tarihi</td>
+                                    <td style="width:15%;">Kategorisi</td>
+                                    <td style="width:15%;">Yazarı</td>
+                                    <td style="width:33%;">İşlem</td>
+
                                 </tr>
                                 @foreach (var item in Model)
                                 {
                                     <tr class="text-center">
                                         <td>#@item.Id</td>
                                         <td>@item.Name</td>
+                                        <td>@item.CreateDate.ToShortDateString()</td>
+                                        <td>@item.Category.Name</td>
+                                        <td>@item.Writer.Name @item.Writer.Surname</td>
                                         <td>
-                                            @if (item.Status)
-                                            {
-                                                <span class="badge badge-success">Aktif</span>
-                                            }
-                                            else
-                                            {
-                                                <span class="badge badge-danger">Pasif</span>
-                                            }
-                                        </td>
-                                        <td>
-                                            <a href="/category/edit/@item.Id" class="btn btn-warning btn-sm">
+                                            <a href="/heading/edit/@item.Id" class="btn btn-warning btn-sm">
                                                 <i class="fas fa-edit"></i>
                                                 Düzenle
                                             </a>
-                                            <a href="/category/delete/@item.Id" class="btn btn-danger btn-sm">
+                                            <a href="/heading/delete/@item.Id" class="btn btn-danger btn-sm">
                                                 <i class="fas fa-trash"></i>
                                                 Sil
                                             </a>

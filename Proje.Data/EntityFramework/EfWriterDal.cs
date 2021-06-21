@@ -1,6 +1,10 @@
-﻿namespace Proje.Data.EntityFramework
+﻿using Proje.Data.Abstract;
+using Proje.Data.Concrete.Repositories;
+using Proje.Entity.Concrete;
+
+namespace Proje.Data.EntityFramework
 {
-    public class EfWriterDal
+    public class EfWriterDal : GenericRepository<Writer>, IWritterDal
     {
     }
 }
