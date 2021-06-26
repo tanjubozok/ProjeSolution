@@ -1,0 +1,75 @@
+﻿@using Proje.Entity.Concrete
+@model List<About>
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Hakkımızda Listesi";
+}
+
+<div class="content-wrapper">
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Hakkımızda Listesi</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="/Istatistik/Index">Anasayfa</a></li>
+                        <li class="breadcrumb-item active">Hakkımızda</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card card-primary card-outline">
+                        <div class="card-header">
+                            <a href="/category/add" class="btn btn-primary" data-toggle="modal" data-target="#modal-default">
+                                <i class="fas fa-plus"></i>
+                                Hakkımızda Ekle
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-bordered table-striped table-hover table-responsive-lg">
+                                <tr class="text-center text-bold">
+                                    <td style="width:7%;">#</td>
+                                    <td style="width:15%;">Detay 1</td>
+                                    <td style="width:15%;">Detay 2</td>
+                                    <td style="width:15%;">Resim 1</td>
+                                    <td style="width:15%;">Resim 2</td>
+                                    <td style="width:33%;">İşlem</td>
+                                </tr>
+                                @foreach (var item in Model)
+                                {
+                                    <tr class="text-center">
+                                        <td>#@item.Id</td>
+                                        <td>@item.DetailFirst</td>
+                                        <td>@item.DetailSecond</td>
+                                        <td>@item.ImageFirst</td>
+                                        <td>@item.ImageSecond</td>
+                                        <td>
+                                            <a href="/about/edit/@item.Id" class="btn btn-warning btn-sm">
+                                                <i class="fas fa-edit"></i>
+                                                Düzenle
+                                            </a>
+                                            <a href="/about/delete/@item.Id" class="btn btn-danger btn-sm">
+                                                <i class="fas fa-trash"></i>
+                                                Sil
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.Action("PartialAdd", "About")

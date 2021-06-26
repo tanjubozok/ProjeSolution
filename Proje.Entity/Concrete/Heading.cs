@@ -14,6 +14,8 @@ namespace Proje.Entity.Concrete
 
         public DateTime CreateDate { get; set; }
 
+        public bool Status { get; set; }
+
         public int CategoryId { get; set; }
         public virtual Category Category { get; set; }
 

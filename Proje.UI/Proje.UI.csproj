@@ -146,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
     <Compile Include="Controllers\HeadingController.cs" />
@@ -173,6 +174,10 @@
     <Content Include="Views\Writer\Edit.cshtml" />
     <Content Include="Views\Heading\List.cshtml" />
     <Content Include="Views\Heading\Add.cshtml" />
+    <Content Include="Views\Content\HeadingById.cshtml" />
+    <Content Include="Views\Heading\Edit.cshtml" />
+    <Content Include="Views\About\List.cshtml" />
+    <Content Include="Views\About\PartialAdd.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -195,7 +200,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Content\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Proje.Business\Proje.Business.csproj">

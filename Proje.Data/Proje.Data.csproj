@@ -86,6 +86,14 @@
     <Compile Include="Migrations\202106212043005_addWriterPropStatus.designer.cs">
       <DependentUpon>202106212043005_addWriterPropStatus.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106230438571_addingContentStatusProp.cs" />
+    <Compile Include="Migrations\202106230438571_addingContentStatusProp.designer.cs">
+      <DependentUpon>202106230438571_addingContentStatusProp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106230442079_addingHeadingStatusProp.cs" />
+    <Compile Include="Migrations\202106230442079_addingHeadingStatusProp.designer.cs">
+      <DependentUpon>202106230442079_addingHeadingStatusProp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -114,6 +122,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106212043005_addWriterPropStatus.resx">
       <DependentUpon>202106212043005_addWriterPropStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106230438571_addingContentStatusProp.resx">
+      <DependentUpon>202106230438571_addingContentStatusProp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106230442079_addingHeadingStatusProp.resx">
+      <DependentUpon>202106230442079_addingHeadingStatusProp.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

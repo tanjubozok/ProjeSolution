@@ -1,0 +1,86 @@
+﻿@using Proje.Entity.Concrete
+@model List<Content>
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "İçeriklerin Listesi";
+}
+<div class="content-wrapper">
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">İçeriklerin Listesi</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="/Istatistik/Index">Anasayfa</a></li>
+                        <li class="breadcrumb-item active">İçeriklerin Listesi</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card card-primary card-outline">
+                        <div class="card-header">
+                            <a href="/category/add" class="btn btn-primary">
+                                <i class="fas fa-plus"></i>
+                                İçerik Ekle
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <section class="content">
+                                <div class="container-fluid">
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="timeline">
+                                                @foreach (var item in Model)
+                                                {
+                                                    <div class="time-label">
+                                                        <span class="bg-red">
+                                                            @item.CreateDate.ToShortDateString()
+                                                        </span>
+                                                    </div>
+                                                    <div>
+                                                        <i class="fas fa-envelope bg-blue"></i>
+                                                        <div class="timeline-item">
+                                                            <span class="time">
+                                                                <i class="fas fa-clock"></i>
+                                                                @item.CreateDate.ToShortTimeString()
+                                                            </span>
+                                                            <h3 class="timeline-header">
+                                                                <a href="#">
+                                                                    @item.Writer.Name @item.Writer.Surname
+                                                                </a>
+                                                                (@item.Heading.Name)
+                                                            </h3>
+
+                                                            <div class="timeline-body">
+                                                                @item.Value
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </section>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/heading/list" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left"></i>
+                                Listeye Geri Dön
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

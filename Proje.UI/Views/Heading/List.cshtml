@@ -43,11 +43,11 @@
                                 <tr class="text-center text-bold">
                                     <td style="width:7%;">#</td>
                                     <td style="width:15%;">Başlık Adı</td>
-                                    <td style="width:15%;">Oluşturma Tarihi</td>
+                                    <td style="width:13%;">Oluşturma Tarihi</td>
                                     <td style="width:15%;">Kategorisi</td>
                                     <td style="width:15%;">Yazarı</td>
-                                    <td style="width:33%;">İşlem</td>
-
+                                    <td style="width:10%;">Durum</td>
+                                    <td style="width:25%;">İşlem</td>
                                 </tr>
                                 @foreach (var item in Model)
                                 {
@@ -58,15 +58,37 @@
                                         <td>@item.Category.Name</td>
                                         <td>@item.Writer.Name @item.Writer.Surname</td>
                                         <td>
+                                            @if (item.Status)
+                                            {
+                                                <span class="badge badge-success">aktif</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge badge-danger">pasif</span>
+                                            }
+                                        </td>
+
+                                        <td>
                                             <a href="/heading/edit/@item.Id" class="btn btn-warning btn-sm">
                                                 <i class="fas fa-edit"></i>
                                                 Düzenle
                                             </a>
-                                            <a href="/heading/delete/@item.Id" class="btn btn-danger btn-sm">
-                                                <i class="fas fa-trash"></i>
-                                                Sil
-                                            </a>
-                                            <a href="" class="btn btn-info btn-sm">
+
+                                            @if (item.Status)
+                                            {
+                                                <a href="/heading/delete/@item.Id" class="btn btn-danger btn-sm">
+                                                    <i class="fas fa-times"></i>
+                                                    Pasif Yap
+                                                </a> }
+                                            else
+                                            {
+                                                <a href="/heading/delete/@item.Id" class="btn btn-success btn-sm">
+                                                    <i class="fas fa-check"></i>
+                                                    Aktif Yap
+                                                </a>
+                                            }
+
+                                            <a href="/Content/HeadingById/@item.Id" class="btn btn-info btn-sm">
                                                 <i class="fas fa-bookmark"></i>
                                                 Başlıklar
                                             </a>

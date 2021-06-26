@@ -13,6 +13,8 @@ namespace Proje.Entity.Concrete
 
         public DateTime CreateDate { get; set; }
 
+        public bool Status { get; set; }
+
         public int HeadingId { get; set; }
         public virtual Heading Heading { get; set; }
 

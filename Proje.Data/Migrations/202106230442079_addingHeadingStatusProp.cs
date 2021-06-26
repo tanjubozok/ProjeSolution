@@ -2,16 +2,16 @@
 {
     using System.Data.Entity.Migrations;
 
-    public partial class addWriterPropStatus : DbMigration
+    public partial class addingHeadingStatusProp : DbMigration
     {
         public override void Up()
         {
-            AddColumn("dbo.Writers", "Status", c => c.Boolean(nullable: false));
+            AddColumn("dbo.Headings", "Status", c => c.Boolean(nullable: false));
         }
 
         public override void Down()
         {
-            DropColumn("dbo.Writers", "Status");
+            DropColumn("dbo.Headings", "Status");
         }
     }
 }
