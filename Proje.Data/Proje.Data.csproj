@@ -94,6 +94,10 @@
     <Compile Include="Migrations\202106230442079_addingHeadingStatusProp.designer.cs">
       <DependentUpon>202106230442079_addingHeadingStatusProp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106261641069_addingClassInMessage.cs" />
+    <Compile Include="Migrations\202106261641069_addingClassInMessage.designer.cs">
+      <DependentUpon>202106261641069_addingClassInMessage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -128,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106230442079_addingHeadingStatusProp.resx">
       <DependentUpon>202106230442079_addingHeadingStatusProp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106261641069_addingClassInMessage.resx">
+      <DependentUpon>202106261641069_addingClassInMessage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
