@@ -1,0 +1,69 @@
+﻿@using Proje.Entity.Concrete
+@model SkillProfile
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Skill Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+    <link href="~/Content/profilContent/css/style.css" rel="stylesheet" media="all" />
+
+    <link href='//fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+
+    <script src="~/Content/profilContent/js/jquery-1.11.1.min.js"></script>
+    <script src="~/Content/profilContent/js/easyResponsiveTabs.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#horizontalTab').easyResponsiveTabs({
+                type: 'default',
+                width: 'auto',
+                fit: true
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="main">
+        <h1>Profil Sayfası</h1>
+        <div class="main-info w3l">
+            <div class="main-row">
+                <div class="profile-grid logo wthree">
+                    <img src="~/Content/profilContent/images/img1.jpg" alt="" />
+                    <h2>@Model.FullName</h2>
+                    <p>@Model.Profession</p>
+
+                </div>
+                <h3 class="title">Yetenekler</h3>
+
+                @Html.Action("PartialProfilValue", "SkillProfile")
+
+                <script src="~/Content/profilContent/js/bars.js"></script>
+                <div class="social-icons agileits">
+
+                    <ul>
+
+                        <li><a href="#"></a></li>
+                        <li><a href="#" class="fb"></a></li>
+                        <li><a href="#" class="be"></a></li>
+                        <li><a href="#" class="gg"></a></li>
+                    </ul>
+                </div>
+                <div class="clear"> </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p> © @DateTime.Now.Year Tüm Hakları Saklıdır.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+﻿@using Proje.Entity.Concrete
+@model IEnumerable<SkillValue>
+
+<div class="col-md-6 skills-right bar_group">
+    @foreach (var item in Model)
+    {
+        <div class='bar_group__bar thin' label='@item.Name' value='@item.Value'></div>
+    }
+</div>

@@ -25,7 +25,7 @@ namespace Proje.Business.ValidationRules
 
             RuleFor(x => x.Email).NotEmpty().WithMessage("E-posta alanını boş geçemezsiniz.");
             RuleFor(x => x.Email).MinimumLength(3).WithMessage("Lütfen en az 3 karakter girişi yapınız.");
-            RuleFor(x => x.Email).MaximumLength(100).WithMessage("Lütfen en fazla 200 karakter girişi yapınız.");
+            RuleFor(x => x.Email).MaximumLength(100).WithMessage("Lütfen en fazla 100 karakter girişi yapınız.");
         }
     }
 }

@@ -12,5 +12,9 @@ namespace Proje.Data.Concrete
         public DbSet<Heading> Headings { get; set; }
         public DbSet<Writer> Writers { get; set; }
         public DbSet<Message> Messages { get; set; }
+        public DbSet<Image> Images { get; set; }
+        public DbSet<Admin> Admins { get; set; }
+        public DbSet<SkillProfile> SkillProfiles { get; set; }
+        public DbSet<SkillValue> SkillValues { get; set; }
     }
 }

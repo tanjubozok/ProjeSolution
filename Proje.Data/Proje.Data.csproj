@@ -52,19 +52,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IAboutDal.cs" />
+    <Compile Include="Abstract\IAdminDal.cs" />
     <Compile Include="Abstract\ICategoryDal.cs" />
     <Compile Include="Abstract\IContactDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
     <Compile Include="Abstract\IHeadingDal.cs" />
+    <Compile Include="Abstract\IImageDal.cs" />
+    <Compile Include="Abstract\IMessageDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
+    <Compile Include="Abstract\ISkillProfileDal.cs" />
+    <Compile Include="Abstract\ISkillValueDal.cs" />
     <Compile Include="Abstract\IWritterDal.cs" />
     <Compile Include="Concrete\DatabaseContext.cs" />
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
     <Compile Include="EntityFramework\EfAboutDal.cs" />
+    <Compile Include="EntityFramework\EfAdminDal.cs" />
     <Compile Include="EntityFramework\EfCategoryDal.cs" />
     <Compile Include="EntityFramework\EfContactDal.cs" />
     <Compile Include="EntityFramework\EfContentDal.cs" />
     <Compile Include="EntityFramework\EfHeadingDal.cs" />
+    <Compile Include="EntityFramework\EfImageDal.cs" />
+    <Compile Include="EntityFramework\EfMessageDal.cs" />
+    <Compile Include="EntityFramework\EfSkillProfileDal.cs" />
+    <Compile Include="EntityFramework\EfSkillValueDal.cs" />
     <Compile Include="EntityFramework\EfWriterDal.cs" />
     <Compile Include="Migrations\202106191725142_createDatabase.cs" />
     <Compile Include="Migrations\202106191725142_createDatabase.designer.cs">
@@ -97,6 +107,14 @@
     <Compile Include="Migrations\202106261641069_addingClassInMessage.cs" />
     <Compile Include="Migrations\202106261641069_addingClassInMessage.designer.cs">
       <DependentUpon>202106261641069_addingClassInMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106270554458_addingClassImage.cs" />
+    <Compile Include="Migrations\202106270554458_addingClassImage.designer.cs">
+      <DependentUpon>202106270554458_addingClassImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106270844342_addingClassAdmin.cs" />
+    <Compile Include="Migrations\202106270844342_addingClassAdmin.designer.cs">
+      <DependentUpon>202106270844342_addingClassAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -135,6 +153,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106261641069_addingClassInMessage.resx">
       <DependentUpon>202106261641069_addingClassInMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106270554458_addingClassImage.resx">
+      <DependentUpon>202106270554458_addingClassImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106270844342_addingClassAdmin.resx">
+      <DependentUpon>202106270844342_addingClassAdmin.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
