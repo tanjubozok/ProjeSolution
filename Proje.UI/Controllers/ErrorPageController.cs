@@ -2,7 +2,7 @@
 
 namespace Proje.UI.Controllers
 {
-    public class ErrorPageController : Controller
+    public class ErrorPageController : BaseController
     {
         public ActionResult Page403()
         {

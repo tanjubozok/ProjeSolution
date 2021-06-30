@@ -9,8 +9,8 @@ namespace Proje.Data.Concrete.Repositories
 {
     public class GenericRepository<T> : IRepository<T> where T : class
     {
-        private DatabaseContext _databaseContext = new DatabaseContext();
-        private DbSet<T> _object;
+        private readonly DatabaseContext _databaseContext = new DatabaseContext();
+        private readonly DbSet<T> _object;
 
         public GenericRepository()
         {
@@ -21,6 +21,20 @@ namespace Proje.Data.Concrete.Repositories
         {
             _databaseContext.Entry(model).State = EntityState.Deleted;
             _databaseContext.SaveChanges();
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _databaseContext.Dispose();
+            }
         }
 
         public T Get(Expression<Func<T, bool>> filter)
@@ -48,6 +62,11 @@ namespace Proje.Data.Concrete.Repositories
         {
             _databaseContext.Entry(model).State = EntityState.Modified;
             _databaseContext.SaveChanges();
+        }
+
+        public int ListCount()
+        {
+            return _object.ToList().Count;
         }
     }
 }

@@ -4,10 +4,10 @@ using System.Web.Mvc;
 
 namespace Proje.UI.Controllers
 {
-    public class SkillProfileController : Controller
+    public class SkillProfileController : BaseController
     {
-        private SkillProfileManager _skillProfileManager = new SkillProfileManager(new EfSkillProfileDal());
-        private SkillValueManager _skillValueManager = new SkillValueManager(new EfSkillValueDal());
+        private readonly SkillProfileManager _skillProfileManager = new SkillProfileManager(new EfSkillProfileDal());
+        private readonly SkillValueManager _skillValueManager = new SkillValueManager(new EfSkillValueDal());
 
         public ActionResult Index(int id = 1)
         {

@@ -4,9 +4,9 @@ using System.Web.Mvc;
 
 namespace Proje.UI.Controllers
 {
-    public class ContentController : Controller
+    public class ContentController : BaseController
     {
-        private ContentManager _contentManager = new ContentManager(new EfContentDal());
+        private readonly ContentManager _contentManager = new ContentManager(new EfContentDal());
 
         public ActionResult Index()
         {

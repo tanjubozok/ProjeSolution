@@ -7,7 +7,7 @@ namespace Proje.Business.Concrete
 {
     public class SkillValueManager : ISkillValueService
     {
-        private ISkillValueDal _skillValueDal;
+        private readonly ISkillValueDal _skillValueDal;
 
         public SkillValueManager(ISkillValueDal skillValueDal)
         {

@@ -7,7 +7,7 @@ namespace Proje.Business.Concrete
 {
     public class WriterManager : IWriterService
     {
-        private IWritterDal _writterDal;
+        private readonly IWritterDal _writterDal;
         public WriterManager(IWritterDal writterDal)
         {
             _writterDal = writterDal;
@@ -36,6 +36,11 @@ namespace Proje.Business.Concrete
         public void Update(Writer writer)
         {
             _writterDal.Update(writer);
+        }
+
+        public int ListCount()
+        {
+            return _writterDal.ListCount();
         }
     }
 }

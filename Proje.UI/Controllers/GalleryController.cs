@@ -4,9 +4,9 @@ using System.Web.Mvc;
 
 namespace Proje.UI.Controllers
 {
-    public class GalleryController : Controller
+    public class GalleryController : BaseController
     {
-        private ImageManager _categoryManager = new ImageManager(new EfImageDal());
+        private readonly ImageManager _categoryManager = new ImageManager(new EfImageDal());
 
         public ActionResult List()
         {

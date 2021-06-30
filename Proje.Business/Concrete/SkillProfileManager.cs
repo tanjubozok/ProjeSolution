@@ -6,7 +6,7 @@ namespace Proje.Business.Concrete
 {
     public class SkillProfileManager : ISkillProfileService
     {
-        private ISkillProfileDal _skillProfileDal;
+        private readonly ISkillProfileDal _skillProfileDal;
 
         public SkillProfileManager(ISkillProfileDal skillProfileDal)
         {

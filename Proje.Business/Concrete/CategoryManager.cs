@@ -7,7 +7,7 @@ namespace Proje.Business.Concrete
 {
     public class CategoryManager : ICategoryService
     {
-        private ICategoryDal _categoryDal;
+        private readonly ICategoryDal _categoryDal;
 
         public CategoryManager(ICategoryDal categoryDal)
         {
@@ -32,6 +32,11 @@ namespace Proje.Business.Concrete
         public List<Category> List()
         {
             return _categoryDal.List();
+        }
+
+        public int ListCount()
+        {
+            return _categoryDal.ListCount();
         }
 
         public void Update(Category category)

@@ -7,7 +7,7 @@ namespace Proje.Business.Concrete
 {
     public class AdminManager : IAdminService
     {
-        private IAdminDal _adminDal;
+        private readonly IAdminDal _adminDal;
 
         public AdminManager(IAdminDal adminDal)
         {

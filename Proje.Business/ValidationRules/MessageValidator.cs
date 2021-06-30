@@ -7,11 +7,13 @@ namespace Proje.Business.ValidationRules
     {
         public MessageValidator()
         {
-            RuleFor(x => x.SenderMail).NotEmpty().WithMessage("Mail boş geçemezsiniz.");
+            RuleFor(x => x.SenderMail).NotEmpty().WithMessage("Mail boş geçemezsiniz.")
+                                      .EmailAddress().WithMessage("Geçerli bir e-posta gerekli");
             RuleFor(x => x.SenderMail).MinimumLength(3).WithMessage("Lütfen en az 3 karakter girişi yapınız.");
             RuleFor(x => x.SenderMail).MaximumLength(50).WithMessage("Lütfen en fazla 50 karakter girişi yapınız.");
 
-            RuleFor(x => x.ReceiverMail).NotEmpty().WithMessage("Mail boş geçemezsiniz.");
+            RuleFor(x => x.ReceiverMail).NotEmpty().WithMessage("Mail boş geçemezsiniz.")
+                                        .EmailAddress().WithMessage("Geçerli bir e-posta gerekli");
             RuleFor(x => x.ReceiverMail).MinimumLength(3).WithMessage("Lütfen en az 3 karakter girişi yapınız.");
             RuleFor(x => x.ReceiverMail).MaximumLength(50).WithMessage("Lütfen en fazla 50 karakter girişi yapınız.");
 

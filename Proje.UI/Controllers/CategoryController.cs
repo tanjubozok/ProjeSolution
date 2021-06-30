@@ -8,10 +8,10 @@ using System.Web.Mvc;
 
 namespace Proje.UI.Controllers
 {
-    public class CategoryController : Controller
+    public class CategoryController : BaseController
     {
-        private CategoryManager _categoryManager = new CategoryManager(new EfCategoryDal());
-        private CategoryValidator categoryValidator = new CategoryValidator();
+        private readonly CategoryManager _categoryManager = new CategoryManager(new EfCategoryDal());
+        private readonly CategoryValidator categoryValidator = new CategoryValidator();
 
         public ActionResult List()
         {

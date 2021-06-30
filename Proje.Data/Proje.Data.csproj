@@ -116,6 +116,10 @@
     <Compile Include="Migrations\202106270844342_addingClassAdmin.designer.cs">
       <DependentUpon>202106270844342_addingClassAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106300737145_addingPropDeletedAndDrafted.cs" />
+    <Compile Include="Migrations\202106300737145_addingPropDeletedAndDrafted.designer.cs">
+      <DependentUpon>202106300737145_addingPropDeletedAndDrafted.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -159,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106270844342_addingClassAdmin.resx">
       <DependentUpon>202106270844342_addingClassAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106300737145_addingPropDeletedAndDrafted.resx">
+      <DependentUpon>202106300737145_addingPropDeletedAndDrafted.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

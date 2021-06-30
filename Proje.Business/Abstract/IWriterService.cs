@@ -12,5 +12,7 @@ namespace Proje.Business.Abstract
         void Add(Writer writer);
         void Delete(Writer writer);
         void Update(Writer writer);
+
+        int ListCount();
     }
 }

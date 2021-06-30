@@ -9,6 +9,7 @@ namespace Proje.Business.Abstract
         List<Contact> GetListById(int id);
 
         Contact GetById(int id);
+        int GetListContactCount();
 
         void Add(Contact contact);
         void Delete(Contact contact);

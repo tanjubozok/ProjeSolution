@@ -6,6 +6,8 @@
     ViewBag.Title = "Galeri";
 }
 
+<link href="~/Content/ekko-lightbox.css" rel="stylesheet" />
+
 <div class="content-wrapper">
     <div class="content-header">
         <div class="container-fluid">
@@ -51,5 +53,28 @@
         </div>
     </div>
 </div>
+
+
+@section Editor
+{
+    <script src="~/Scripts/ekko-lightbox.min.js"></script>
+    <script src="~/Scripts/jquery.filterizr.min.js"></script>
+    <script>
+        $(function () {
+            $(document).on('click', '[data-toggle="lightbox"]', function (event) {
+                event.preventDefault();
+                $(this).ekkoLightbox({
+                    alwaysShowClose: true
+                });
+            });
+
+            $('.filter-container').filterizr({ gutterPixels: 3 });
+            $('.btn[data-filter]').on('click', function () {
+                $('.btn[data-filter]').removeClass('active');
+                $(this).addClass('active');
+            });
+        })
+    </script>
+}
 
 

@@ -7,7 +7,7 @@ namespace Proje.Business.Concrete
 {
     public class ImageManager : IImageService
     {
-        private IImageDal _imageDal;
+        private readonly IImageDal _imageDal;
 
         public ImageManager(IImageDal imageDal)
         {
@@ -17,6 +17,11 @@ namespace Proje.Business.Concrete
         public List<Image> List()
         {
             return _imageDal.List();
+        }
+
+        public int ListCount()
+        {
+            return _imageDal.ListCount();
         }
     }
 }

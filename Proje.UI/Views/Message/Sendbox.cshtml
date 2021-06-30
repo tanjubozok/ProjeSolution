@@ -3,7 +3,7 @@
 
 @{
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
-    ViewBag.Title = "Mesaj Sayfası";
+    ViewBag.Title = "Gönderilen Mesajlar";
 }
 
 <div class="content-wrapper">
@@ -11,12 +11,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Mesaj Sayfası</h1>
+                    <h1 class="m-0">Gönderilen Mesajlar</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/Istatistik/Index">Anasayfa</a></li>
-                        <li class="breadcrumb-item active">Mesaj Sayfası</li>
+                        <li class="breadcrumb-item active">Gönderilen Mesajlar</li>
                     </ol>
                 </div>
             </div>
@@ -25,11 +25,10 @@
     <section class="content">
         <div class="row">
             @Html.Action("PartialFolder", "Contact")
-            <!-- /.col -->
             <div class="col-md-9">
                 <div class="card card-primary card-outline">
                     <div class="card-header">
-                        <h3 class="card-title">Gelen Kutusu</h3>
+                        <h3 class="card-title">Gönderilen Mesajlar</h3>
 
                         <div class="card-tools">
                             <div class="input-group input-group-sm">
@@ -41,12 +40,9 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- /.card-tools -->
                     </div>
-                    <!-- /.card-header -->
                     <div class="card-body p-0">
                         <div class="mailbox-controls">
-                            <!-- Check all button -->
                             <button type="button" class="btn btn-default btn-sm checkbox-toggle">
                                 <i class="far fa-square"></i>
                             </button>
@@ -61,7 +57,6 @@
                                     <i class="fas fa-share"></i>
                                 </button>
                             </div>
-                            <!-- /.btn-group -->
                             <button type="button" class="btn btn-default btn-sm">
                                 <i class="fas fa-sync-alt"></i>
                             </button>
@@ -75,9 +70,7 @@
                                         <i class="fas fa-chevron-right"></i>
                                     </button>
                                 </div>
-                                <!-- /.btn-group -->
                             </div>
-                            <!-- /.float-right -->
                         </div>
                         <div class="table-responsive mailbox-messages">
                             <table class="table table-hover table-striped">
@@ -92,26 +85,29 @@
                                                 </div>
                                             </td>
                                             <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
-                                            <td class="mailbox-name"><a href="/message/detail/@item.Id">@item.SenderMail</a></td>
+                                            <td class="mailbox-name"><a href="/message/detail/@item.Id">@item.ReceiverMail</a></td>
                                             <td class="mailbox-subject">
                                                 <b>@item.Subject</b>
-                                                @item.Content.Substring(0, 20).....
+                                                @if (item.Content.Length < 31)
+                                                {
+                                                    @item.Content;
+                                                }
+                                                else
+                                                {
+                                                    @item.Content.Substring(0, 30) @("...")
+                                                }
                                             </td>
                                             <td class="mailbox-attachment"></td>
-                                            <td class="mailbox-date">@item.MessageDate.ToShortDateString()</td>
+                                            <td class="mailbox-date" style="float:right;">@item.MessageDate.ToShortDateString()</td>
                                         </tr>
                                     }
 
                                 </tbody>
                             </table>
-                            <!-- /.table -->
                         </div>
-                        <!-- /.mail-box-messages -->
                     </div>
-                    <!-- /.card-body -->
                     <div class="card-footer p-0">
                         <div class="mailbox-controls">
-                            <!-- Check all button -->
                             <button type="button" class="btn btn-default btn-sm checkbox-toggle">
                                 <i class="far fa-square"></i>
                             </button>
@@ -126,7 +122,6 @@
                                     <i class="fas fa-share"></i>
                                 </button>
                             </div>
-                            <!-- /.btn-group -->
                             <button type="button" class="btn btn-default btn-sm">
                                 <i class="fas fa-sync-alt"></i>
                             </button>
@@ -140,16 +135,11 @@
                                         <i class="fas fa-chevron-right"></i>
                                     </button>
                                 </div>
-                                <!-- /.btn-group -->
                             </div>
-                            <!-- /.float-right -->
                         </div>
                     </div>
                 </div>
-                <!-- /.card -->
             </div>
-            <!-- /.col -->
         </div>
-        <!-- /.row -->
     </section>
 </div>

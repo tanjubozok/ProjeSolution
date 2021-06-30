@@ -8,8 +8,8 @@ namespace Proje.Business.Concrete
 {
     public class MessageManager : IMessageService
     {
-        IMessageDal _messageDal;
-        string message = "";
+        private readonly IMessageDal _messageDal;
+        private readonly string message = "";
 
         public MessageManager(IMessageDal messageDal)
         {
@@ -19,7 +19,7 @@ namespace Proje.Business.Concrete
 
         public void Add(Message message)
         {
-            throw new NotImplementedException();
+            _messageDal.Insert(message);
         }
 
         public void Delete(Message message)
@@ -29,7 +29,17 @@ namespace Proje.Business.Concrete
 
         public Message GetById(int id)
         {
-            throw new NotImplementedException();
+            return _messageDal.Get(x => x.Id == id);
+        }
+
+        public List<Message> GetIsDeleted()
+        {
+            return _messageDal.List(x => x.IsDeleted);
+        }
+
+        public List<Message> GetIsDrafted()
+        {
+            return _messageDal.List(x => x.IsDrafted);
         }
 
         public List<Message> GetListById(int id)
@@ -37,19 +47,44 @@ namespace Proje.Business.Concrete
             throw new NotImplementedException();
         }
 
-        public List<Message> GetListReceiver()
+        public List<Message> GetListInbox()
         {
-            return _messageDal.List(x => x.ReceiverMail == message);
+            return _messageDal.List(x => x.ReceiverMail == message && !x.IsDeleted && !x.IsDrafted);
         }
 
-        public List<Message> GetListSender()
+        public int GetListInboxCount()
         {
-            return _messageDal.List(x => x.SenderMail == message);
+            return _messageDal.List(x => x.ReceiverMail == message && !x.IsDeleted && !x.IsDrafted).Count;
+        }
+
+        public int GetListIsDeletedCount()
+        {
+            return _messageDal.List(x => x.IsDeleted).Count;
+        }
+
+        public int GetListIsDraftedCount()
+        {
+            return _messageDal.List(x => x.IsDrafted).Count;
+        }
+
+        public List<Message> GetListSendbox()
+        {
+            return _messageDal.List(x => x.SenderMail == message && !x.IsDeleted && !x.IsDrafted);
+        }
+
+        public int GetListSendboxCount()
+        {
+            return _messageDal.List(x => x.SenderMail == message && !x.IsDeleted && !x.IsDrafted).Count;
         }
 
         public List<Message> List()
         {
             throw new NotImplementedException();
+        }
+
+        public int ListCount()
+        {
+            return _messageDal.ListCount();
         }
 
         public void Update(Message message)

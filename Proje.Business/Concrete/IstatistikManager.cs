@@ -5,7 +5,7 @@ namespace Proje.Business.Concrete
 {
     public class IstatistikManager
     {
-        private DatabaseContext _databaseContext = new DatabaseContext();
+        private readonly DatabaseContext _databaseContext = new DatabaseContext();
 
         public int CountCategory()
         {

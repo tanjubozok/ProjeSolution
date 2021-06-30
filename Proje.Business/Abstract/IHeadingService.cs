@@ -12,5 +12,7 @@ namespace Proje.Business.Abstract
         void Add(Heading heading);
         void Update(Heading heading);
         void Delete(Heading heading);
+
+        int ListCount();
     }
 }

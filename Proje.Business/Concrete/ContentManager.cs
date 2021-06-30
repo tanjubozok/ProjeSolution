@@ -7,7 +7,7 @@ namespace Proje.Business.Concrete
 {
     public class ContentManager : IContentService
     {
-        private IContentDal _contentDal;
+        private readonly IContentDal _contentDal;
 
         public ContentManager(IContentDal contentDal)
         {

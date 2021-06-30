@@ -6,9 +6,9 @@ using System.Web.Security;
 
 namespace Proje.UI.Controllers
 {
-    public class AdminController : Controller
+    public class AdminController : BaseController
     {
-        private AdminManager _adminManager = new AdminManager(new EfAdminDal());
+        private readonly AdminManager _adminManager = new AdminManager(new EfAdminDal());
 
         [HttpGet]
         public ActionResult Login()

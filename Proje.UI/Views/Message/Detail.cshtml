@@ -1,5 +1,5 @@
 ﻿@using Proje.Entity.Concrete
-@model Contact
+@model Message
 
 @{
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
@@ -40,13 +40,13 @@
                         <div class="mailbox-read-info">
                             <h5><b>Konu :</b> @Model.Subject</h5>
                             <h6>
-                                <b>Kimden</b>: @Model.Email
-                                <span class="mailbox-read-time float-right">@Model.CreateDate</span>
+                                <b>Kimden</b>: @Model.SenderMail
+                                <span class="mailbox-read-time float-right">@Model.MessageDate</span>
                             </h6>
-                        </div>    
+                        </div>
                         <div class="mailbox-read-message">
                             <p>
-                                @Model.Message
+                                @Model.Content
                             </p>
                         </div>
                     </div>

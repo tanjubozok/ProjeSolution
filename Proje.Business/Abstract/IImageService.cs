@@ -6,5 +6,7 @@ namespace Proje.Business.Abstract
     public interface IImageService
     {
         List<Image> List();
+
+        int ListCount();
     }
 }

@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace Proje.Data.Abstract
 {
-    public interface IRepository<T>
+    public interface IRepository<T> : IDisposable
     {
         List<T> List();
         List<T> List(Expression<Func<T, bool>> filter);
@@ -14,5 +14,7 @@ namespace Proje.Data.Abstract
         void Insert(T model);
         void Delete(T model);
         void Update(T model);
+
+        int ListCount();
     }
 }

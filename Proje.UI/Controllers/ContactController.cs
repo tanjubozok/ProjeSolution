@@ -5,10 +5,11 @@ using System.Web.Mvc;
 
 namespace Proje.UI.Controllers
 {
-    public class ContactController : Controller
+    public class ContactController : BaseController
     {
-        private ContactManager _contactManager = new ContactManager(new EfContactDal());
-        private ContactValidator _validationRules = new ContactValidator();
+        private readonly ContactManager _contactManager = new ContactManager(new EfContactDal());
+        private readonly MessageManager _messageManager = new MessageManager(new EfMessageDal());
+        private readonly ContactValidator _validationRules = new ContactValidator();
 
         public ActionResult Index()
         {
@@ -24,6 +25,9 @@ namespace Proje.UI.Controllers
 
         public PartialViewResult PartialFolder()
         {
+            ViewBag.InboxCount = _messageManager.GetListInboxCount();
+            ViewBag.SendboxCount = _messageManager.GetListSendboxCount();
+            ViewBag.ContactCount = _contactManager.GetListContactCount();
             return PartialView();
         }
     }

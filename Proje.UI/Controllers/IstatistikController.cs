@@ -3,9 +3,9 @@ using System.Web.Mvc;
 
 namespace Proje.UI.Controllers
 {
-    public class IstatistikController : Controller
+    public class IstatistikController : BaseController
     {
-        private IstatistikManager _istatistikManager = new IstatistikManager();
+        private readonly IstatistikManager _istatistikManager = new IstatistikManager();
 
         public ActionResult Index()
         {

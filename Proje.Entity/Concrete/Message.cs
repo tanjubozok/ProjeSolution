@@ -20,6 +20,9 @@ namespace Proje.Entity.Concrete
         [StringLength(1000)]
         public string Content { get; set; }
 
+        public bool IsDeleted { get; set; }
+        public bool IsDrafted { get; set; }
+
         public DateTime MessageDate { get; set; }
     }
 }

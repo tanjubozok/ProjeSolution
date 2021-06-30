@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace Proje.UI.Controllers
 {
-    public class HeadingController : Controller
+    public class HeadingController : BaseController
     {
         private readonly HeadingManager _headingManager = new HeadingManager(new EfHeadingDal());
         private readonly CategoryManager _categoryManager = new CategoryManager(new EfCategoryDal());

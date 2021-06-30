@@ -7,14 +7,23 @@ namespace Proje.Business.Abstract
     {
         List<Message> List();
         List<Message> GetListById(int id);
+        List<Message> GetIsDeleted();
+        List<Message> GetIsDrafted();
 
-        List<Message> GetListSender();
-        List<Message> GetListReceiver();
+        List<Message> GetListSendbox();
+        List<Message> GetListInbox();
+
+        int GetListSendboxCount();
+        int GetListInboxCount();
+        int GetListIsDraftedCount();
+        int GetListIsDeletedCount();
 
         Message GetById(int id);
 
         void Add(Message message);
         void Delete(Message message);
         void Update(Message message);
+
+        int ListCount();
     }
 }

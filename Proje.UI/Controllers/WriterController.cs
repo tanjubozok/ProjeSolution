@@ -8,10 +8,10 @@ using System.Web.Mvc;
 
 namespace Proje.UI.Controllers
 {
-    public class WriterController : Controller
+    public class WriterController : BaseController
     {
-        private WriterManager _writerManager = new WriterManager(new EfWriterDal());
-        private WriterValidator writerValidator = new WriterValidator();
+        private readonly WriterManager _writerManager = new WriterManager(new EfWriterDal());
+        private readonly WriterValidator writerValidator = new WriterValidator();
 
         public ActionResult List()
         {

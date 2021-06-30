@@ -6,9 +6,9 @@ using System.Web.Mvc;
 
 namespace Proje.UI.Controllers
 {
-    public class AboutController : Controller
+    public class AboutController : BaseController
     {
-        private AboutManager _aboutManager = new AboutManager(new EfAboutDal());
+        private readonly AboutManager _aboutManager = new AboutManager(new EfAboutDal());
 
         public ActionResult List()
         {
