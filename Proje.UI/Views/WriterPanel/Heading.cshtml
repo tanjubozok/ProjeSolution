@@ -1,0 +1,79 @@
+﻿@using Proje.Entity.Concrete
+@model List<Heading>
+
+@{
+    Layout = "~/Views/Shared/_LayoutWriter.cshtml";
+    ViewBag.Title = "Başlık Listesi";
+}
+
+<div class="content-wrapper">
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Başlık Listesi</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="/Istatistik/Index">Anasayfa</a></li>
+                        <li class="breadcrumb-item active">Başlık Listesi</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-lg-12">
+                    <div class="card card-primary card-outline">
+
+                        <div class="card-header">
+                            <a href="/WriterPanel/Create" class="btn btn-primary">
+                                <i class="fas fa-plus"></i>
+                                Başlık Ekle
+                            </a>
+                        </div>
+
+
+                        <div class="card-body">
+
+                            <table class="table table-bordered table-striped table-hover table-responsive-lg">
+                                <tr class="text-center text-bold">
+                                    <td style="width:7%;">#</td>
+                                    <td style="width:28%;">Başlık Adı</td>
+                                    <td style="width:10%;">Oluşturma Tarihi</td>
+                                    <td style="width:15%;">Kategorisi</td>
+                                    <td style="width:15%;">Yazarı</td>
+                                    <td style="width:25%;">İşlem</td>
+                                </tr>
+                                @foreach (var item in Model)
+                                {
+                                    <tr class="text-center">
+                                        <td>#@item.Id</td>
+                                        <td>@item.Name</td>
+                                        <td>@item.CreateDate.ToShortDateString()</td>
+                                        <td>@item.Category.Name</td>
+                                        <td>@item.Writer.Name @item.Writer.Surname</td>
+                                        <td>
+                                            <a href="/WriterPanel/edit/@item.Id" class="btn btn-warning btn-sm">
+                                                <i class="fas fa-edit"></i>
+                                                Düzenle
+                                            </a>                                            
+
+                                            <a href="/WriterPanel/HeadingById/@item.Id" class="btn btn-info btn-sm">
+                                                <i class="fas fa-bookmark"></i>
+                                                Başlıklar
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

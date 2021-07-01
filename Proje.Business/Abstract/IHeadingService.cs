@@ -6,6 +6,7 @@ namespace Proje.Business.Abstract
     public interface IHeadingService
     {
         List<Heading> List();
+        List<Heading> GetListByWritter();
 
         Heading GetById(int id);
 

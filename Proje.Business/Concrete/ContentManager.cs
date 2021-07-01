@@ -39,6 +39,11 @@ namespace Proje.Business.Concrete
             return _contentDal.List();
         }
 
+        public List<Content> ListByWriter()
+        {
+            return _contentDal.List(x => x.WriterId == 1);
+        }
+
         public void Update(Content model)
         {
             _contentDal.Update(model);

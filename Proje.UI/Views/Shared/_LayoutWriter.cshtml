@@ -10,7 +10,6 @@
 
     <link href="~/Content/all.min.css" rel="stylesheet" />
     <link href="~/Content/adminlte.min.css" rel="stylesheet" />
-    <link href="~/Content/summernote-bs4.min.css" rel="stylesheet" />
 
 </head>
 <body class="hold-transition sidebar-mini">
@@ -172,90 +171,55 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
                         <li class="nav-item">
-                            <a href="/Istatistik/Index" class="nav-link">
-                                <i class="nav-icon fas fa-chart-area"></i>
+                            <a href="" class="nav-link">
+                                <i class="nav-icon fas fa-user"></i>
                                 <p>
-                                    İstatistikler
-                                    @*<span class="right badge badge-danger">New</span>*@
+                                    Profilim
                                 </p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="/category/list" class="nav-link">
-                                <i class="nav-icon fas fa-list"></i>
+                            <a href="/WriterPanel/heading" class="nav-link">
+                                <i class="nav-icon fas fa-list-alt"></i>
                                 <p>
-                                    Kategoriler
-                                    <span class="right badge badge-danger">
-                                        @ViewBag.CategoryCount
-                                    </span>
+                                    Başlıklarım
                                 </p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="/writer/list" class="nav-link">
-                                <i class="nav-icon fas fa-users"></i>
-                                <p>
-                                    Yazarlar
-                                    <span class="right badge badge-danger">
-                                        @ViewBag.WriterCount
-                                    </span>
-                                </p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="/heading/list" class="nav-link">
-                                <i class="nav-icon fas fa-building"></i>
-                                <p>
-                                    Başlıklar
-                                    <span class="right badge badge-danger">
-                                        @ViewBag.HeaderCount
-                                    </span>
-                                </p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="/about/list" class="nav-link">
-                                <i class="nav-icon fas fa-user-check"></i>
-                                <p>
-                                    Hakkımızda
-                                    @*<span class="right badge badge-danger">New</span>*@
-                                </p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="/Contact/index" class="nav-link">
-                                <i class="nav-icon fas fa-pager"></i>
+                            <a href="" class="nav-link">
+                                <i class="nav-icon fas fa-envelope"></i>
                                 <p>
                                     Mesajlar
-                                    <span class="right badge badge-danger">
-                                        @ViewBag.MessagesCount
-                                    </span>
                                 </p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="/gallery/list" class="nav-link">
-                                <i class="nav-icon fas fa-images"></i>
+                            <a href="" class="nav-link">
+                                <i class="nav-icon fas fa-pen"></i>
                                 <p>
-                                    Galeri
-                                    <span class="right badge badge-danger">
-                                        @ViewBag.GaleriCount
-                                    </span>
+                                    Yazılarım
                                 </p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="/SkillProfile/index" class="nav-link">
-                                <i class="nav-icon fas fa-bath"></i>
+                            <a href="" class="nav-link">
+                                <i class="nav-icon fas fa-sitemap"></i>
                                 <p>
-                                    Yetenekler
+                                    Siteye Git
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="" class="nav-link">
+                                <i class="nav-icon fas fa-sign-out-alt"></i>
+                                <p>
+                                    Çıkış Yap
                                 </p>
                             </a>
                         </li>
@@ -264,6 +228,7 @@
                 </nav>
             </div>
         </aside>
+
 
         @RenderBody()
 
@@ -287,23 +252,6 @@
     <script src="~/Scripts/jquery.min.js"></script>
     <script src="~/Scripts/bootstrap.bundle.min.js"></script>
     <script src="~/Scripts/adminlte.min.js"></script>
-    <script src="~/Scripts/summernote-bs4.min.js"></script>
-    <script>
-        $('#compose-textarea').summernote({
-            placeholder: 'Mesajın içeriği',
-            tabsize: 2,
-            height: 120,
-            toolbar: [
-                ['style', ['style']],
-                ['font', ['bold', 'underline', 'clear']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['table', ['table']],
-                ['insert', ['link', 'picture', 'video']],
-                ['view', ['fullscreen', 'codeview', 'help']]
-            ]
-        });
-    </script>
 
     @RenderSection("Editor", false)
 

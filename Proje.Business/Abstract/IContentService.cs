@@ -6,6 +6,7 @@ namespace Proje.Business.Abstract
     public interface IContentService
     {
         List<Content> List();
+        List<Content> ListByWriter();
         List<Content> GetListById(int id);
         Content GetById(int id);
 

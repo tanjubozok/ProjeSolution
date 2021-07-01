@@ -6,8 +6,6 @@
     ViewBag.Title = "Yeni Mesaj";
 }
 
-<link href="~/Content/summernote-bs4.min.css" rel="stylesheet" />
-
 <div class="content-wrapper">
     <div class="content-header">
         <div class="container-fluid">
@@ -154,13 +152,3 @@
         </div>
     </section>
 </div>
-
-@section Editor
-{
-    <script src="~/Scripts/summernote-bs4.min.js"></script>
-    <script>
-        $(function () {
-            $('#compose-textarea').summernote()
-        })
-    </script>
-}

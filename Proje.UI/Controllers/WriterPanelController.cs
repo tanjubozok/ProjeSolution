@@ -8,46 +8,43 @@ using System.Web.Mvc;
 
 namespace Proje.UI.Controllers
 {
-    public class HeadingController : BaseController
+    public class WriterPanelController : BaseController
     {
         private readonly HeadingManager _headingManager = new HeadingManager(new EfHeadingDal());
         private readonly CategoryManager _categoryManager = new CategoryManager(new EfCategoryDal());
-        private readonly WriterManager _writerManager = new WriterManager(new EfWriterDal());
 
-        public ActionResult List()
+        public ActionResult Profil()
         {
-            var getHeading = _headingManager.List();
-            return View(getHeading);
+            return View();
         }
 
-        public ActionResult Add()
+        public ActionResult Heading()
         {
-            List<SelectListItem> getCategoryList = (from c in _categoryManager.List()
+            var getList = _headingManager.GetListByWritter();
+            return View(getList);
+        }
+
+        [HttpGet]
+        public ActionResult Create()
+        {
+            List<SelectListItem> getCategoryList = (from i in _categoryManager.List()
                                                     select new SelectListItem
                                                     {
-                                                        Value = c.Id.ToString(),
-                                                        Text = c.Name
+                                                        Value = i.Id.ToString(),
+                                                        Text = i.Name
                                                     }).ToList();
-
-            List<SelectListItem> getWriterList = (from w in _writerManager.List()
-                                                  select new SelectListItem
-                                                  {
-                                                      Value = w.Id.ToString(),
-                                                      Text = w.Name + " " + w.Surname
-                                                  }).ToList();
-
             ViewBag.CategoryList = getCategoryList;
-            ViewBag.WriterList = getWriterList;
-
             return View();
         }
 
         [HttpPost]
-        public ActionResult Add(Heading model)
+        public ActionResult Create(Heading model)
         {
-            model.CreateDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+            model.CreateDate = DateTime.Now;
+            model.WriterId = 4;
+            model.Status = true;
             _headingManager.Add(model);
-            return RedirectToAction("List", "Heading");
+            return RedirectToAction("Heading", "WriterPanel");
         }
 
         [HttpGet]
@@ -61,7 +58,7 @@ namespace Proje.UI.Controllers
                                                     }).ToList();
             ViewBag.CategoryList = getCategoryList;
 
-            var getId = _headingManager.GetById(id);
+            var getId = _headingManager.GetListByWritter();
             return View(getId);
         }
 

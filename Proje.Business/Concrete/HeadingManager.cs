@@ -8,6 +8,7 @@ namespace Proje.Business.Concrete
     public class HeadingManager : IHeadingService
     {
         private readonly IHeadingDal _headingDal;
+
         public HeadingManager(IHeadingDal headingDal)
         {
             _headingDal = headingDal;
@@ -26,6 +27,11 @@ namespace Proje.Business.Concrete
         public Heading GetById(int id)
         {
             return _headingDal.Get(x => x.Id == id);
+        }
+
+        public List<Heading> GetListByWritter()
+        {
+            return _headingDal.List(x=>x.WriterId==1);
         }
 
         public List<Heading> List()
