@@ -76,6 +76,7 @@
     <Compile Include="EntityFramework\EfSkillProfileDal.cs" />
     <Compile Include="EntityFramework\EfSkillValueDal.cs" />
     <Compile Include="EntityFramework\EfWriterDal.cs" />
+    <Compile Include="EntityFramework\EfWriterLoginDal.cs" />
     <Compile Include="Migrations\202106191725142_createDatabase.cs" />
     <Compile Include="Migrations\202106191725142_createDatabase.designer.cs">
       <DependentUpon>202106191725142_createDatabase.cs</DependentUpon>
